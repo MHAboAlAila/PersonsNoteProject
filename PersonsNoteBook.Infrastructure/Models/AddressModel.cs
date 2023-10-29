@@ -35,5 +35,8 @@ namespace PersonsNoteBook.Infrastructure.Models
         [Required(ErrorMessage = "Please enter Apartment")]
         [StringLength(100)]
         public string Apartment { get; set; }
+
+        [Required(ErrorMessage ="Please chek Primary")]
+        public bool Primary { get; set; }
     }
 }

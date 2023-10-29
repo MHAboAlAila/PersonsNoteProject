@@ -19,7 +19,7 @@ namespace PersonsNoteBook.Extensions
         }
         public static void ConfigureExceptionHandler(this IApplicationBuilder app)
         {
-
+            
             app.UseExceptionHandler(appError =>
             {
                 appError.Run(async context =>

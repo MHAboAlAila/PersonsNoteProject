@@ -59,9 +59,9 @@ namespace PersonsNoteBook.Core.Entities
             UpdateAt = DateTime.Now;
         }
 
-        public void AddAddress(string country, string poBox, string city, string street, string apartment)
+        public void AddAddress(string country, string poBox, string city, string street, string apartment, bool primary)
         {
-            _addresses.Add(new AddressEntity(country, poBox, city, street, apartment));
+            _addresses.Add(new AddressEntity(country, poBox, city, street, apartment, primary));
         }
 
         public void RemoveAddress(int id)
@@ -69,12 +69,12 @@ namespace PersonsNoteBook.Core.Entities
             _addresses.RemoveAll(address => address.Id == id);
         }
 
-        public void UpdateAddress(int id, string country, string poBox, string city, string street, string apartment)
+        public void UpdateAddress(int id, string country, string poBox, string city, string street, string apartment, bool primary)
         {
             AddressEntity? _address = _addresses.Find(address => address.Id == id);
             if (_address != null)
             {
-                _address.UpdateAddress(country, poBox, city, street, apartment);
+                _address.UpdateAddress(country, poBox, city, street, apartment, primary);
             }
         }
 

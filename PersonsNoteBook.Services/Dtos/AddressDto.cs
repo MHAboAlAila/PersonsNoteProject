@@ -14,5 +14,6 @@ namespace PersonsNoteBook.Services.Dtos
         public string City { get; init; }
         public string Street { get; init; }
         public string Apartment { get; init; }
+        public bool Primary { get; init; }
     }
 }

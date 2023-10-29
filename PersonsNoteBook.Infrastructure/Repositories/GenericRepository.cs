@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,7 @@ namespace PersonsNoteBook.Infrastructure.Repositories
         {
             var model = _mapper.Map<TModel>(entity);
             await _dbContext.Set<TModel>().AddAsync(model);
+            
             await DispatchDomainEventsAsync(entity);
         }
 
@@ -53,7 +55,7 @@ namespace PersonsNoteBook.Infrastructure.Repositories
 
         public async Task<IEnumerable<TEntity>> GetAll()
         {
-            var models = await _dbContext.Set<TModel>().ToListAsync();
+            var models = _dbContext.Set<TModel>().ToList();
             List<TEntity> entities = new List<TEntity>();
             foreach(var model in models)
             {

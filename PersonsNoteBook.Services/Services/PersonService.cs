@@ -62,7 +62,7 @@ namespace PersonsNoteBook.Services
                         foreach(var address in personObj.Addresses)
                         {
                             var addressObj = await _addressRepository.GetById(address.Id);
-                            addressObj.UpdateAddress(address.Country, address.PoBox, address.City, address.Street, address.Apartment);
+                            addressObj.UpdateAddress(address.Country, address.PoBox, address.City, address.Street, address.Apartment, address.Primary);
                         }
 
                         _unitOfWork.Save();
